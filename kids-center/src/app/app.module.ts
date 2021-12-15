@@ -7,13 +7,15 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { ForgetComponent } from './components/forget/forget.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EventsComponent } from './components/events/events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
-    ForgetComponent
+    ForgetComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
