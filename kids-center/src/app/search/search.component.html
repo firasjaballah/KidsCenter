@@ -1,6 +1,6 @@
 <div class="search">
     <div class="searchField">
-        <form [formGroup]="form" (submit)="submit()" >
+        <form [formGroup]="form" (submit)="add()" >
    <input formControlName="fullName" type="text"  value=""  /> 
   <select formControlName="city" name="City" value="" size="1">
        <option value="" >City</option>
@@ -41,7 +41,7 @@
         <option value=""></option>
       </select>
       
-      <button type="submit" >Search</button>
+      <button type="submit"  >Search</button>
     </form>
      
       </div>

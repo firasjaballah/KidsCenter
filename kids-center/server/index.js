@@ -7,7 +7,7 @@ var cors = require('cors');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/user').then((data)=> console.log("mongoose connectetd"));
+mongoose.connect('mongodb://localhost/user').then((data)=> console.log("mongoose connected"));
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -17,7 +17,7 @@ app.use(cors());
 
 app.use('/', userRouter);
 
-app.listen(4200, function() {
-  console.log('listening on port 4200');
+app.listen(8000, function() {
+  console.log('listening on port 8000');
 });
 
