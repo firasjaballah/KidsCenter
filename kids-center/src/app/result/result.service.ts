@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'result',
@@ -7,16 +8,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./result.component.css']
 })
 export class ResultService implements OnInit {
-    private _url: string = "/"
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,
+              
+    ) { 
  
   }
 
   ngOnInit(): void {
+   
     
+
   }
   fetchData(){
-    
+     
   }
 
 }

@@ -1,17 +1,18 @@
 var express = require('express');
 var {selectAll,User} = require('../../models/user.js')
 
-var app = express();
-
+// var app = express();
+var router= express.Router()
 
 router.route('/user')
   .get(function(req, res) {
     selectAll(function(err, data) {
       if(err) {
-        res.sendStatus(500);
+        console.log(err);
+        // res.sendStatus(500);
       } else {
         console.log(data);
-        res.json('success',data);
+        res.send('success',data);
       }
     });
   });
@@ -21,6 +22,7 @@ router.route('/user/:id')
   .get(function(req, res) {
     findOne({id:req.params.id},function(err,data){    
       console.log({id:req.params.id})
+      console.log(data);
       if(err){
         res.send('there is an err',err)
       }
@@ -37,11 +39,12 @@ router.route('/user')
 User.create(req.body)
     .then(function(){
        selectAll(function(err,data){
+         console.log(data);
         if(err){
           console.log(err)
         }
         else{
-          res.json(data)
+          res.send("data",data)
         }
       })
     })
@@ -65,4 +68,4 @@ router.route('/update')
 })
   
   
-module.exports = app;
+module.exports = router;

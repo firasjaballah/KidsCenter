@@ -9,11 +9,11 @@ mongoose.connect('mongodb://localhost/user');
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/../react-client/dist'));
+// app.use(express.static(__dirname + '/../react-client/dist'));
 
 
-app.use('/user', userRouter);
+app.use('/', userRouter);
 
-app.listen(8000, function() {
-  console.log('listening on port 8000');
+app.listen(4200, function() {
+  console.log('listening on port 4200');
 });
