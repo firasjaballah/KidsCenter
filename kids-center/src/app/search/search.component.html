@@ -1,7 +1,8 @@
 <div class="search">
     <div class="searchField">
-   <input  type="text" value="" /> 
-  <select name="City" value="" size="1">
+        <form [formGroup]="form" (submit)="submit()" >
+   <input formControlName="fullName" type="text"  value=""  /> 
+  <select formControlName="city" name="City" value="" size="1">
        <option value="" >City</option>
        <option value="Tunis">Tunis</option>
        <option value="Ariana">Ariana</option>
@@ -29,7 +30,7 @@
        <option value="Zaghouan">Zaghouan</option>
        <option value="Kébili">Kébili</option>
                     </select>
-      <select  size="1" name="specialty" value="" >
+      <select formControlName="specialty" size="1" name="specialty" value="" >
         <option value="" >Specialty</option>
         <option value="English">English</option>
         <option value="Français">Français</option>
@@ -40,6 +41,8 @@
         <option value=""></option>
       </select>
       
-      <button>Search</button>
+      <button type="submit" >Search</button>
+    </form>
+     
       </div>
      

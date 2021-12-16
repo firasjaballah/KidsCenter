@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit {
-
+export class ResultService implements OnInit {
+    private _url: string = "/"
   constructor(private http: HttpClient) { 
  
   }
@@ -16,6 +15,8 @@ export class ResultComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  
+  fetchData(){
+    
+  }
 
 }
