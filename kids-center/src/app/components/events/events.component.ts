@@ -11,5 +11,10 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  state=''
+  onfilter(selectedValue:HTMLSelectElement){
+    this.state=selectedValue.value
+  }
 
 }

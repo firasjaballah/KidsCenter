@@ -1,5 +1,15 @@
 <H1>Events</H1>
-<select>
+<select [value] = "state" #selectedValue>
     <option> filter per state </option>
+    <option> Ariana </option>
+    <option> Tunis </option>
 </select>
-<button>filter</button>
+<button (click)="onfilter(selectedValue)">filter</button>
+<p>{{state}}</p>
+<mat-form-field appearance="fill">
+    <mat-label>State</mat-label>
+    <mat-select>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+    </mat-select>
+  </mat-form-field>
