@@ -1,22 +1,20 @@
 var express = require('express');
-var {selectAll,User} = require('../../models/user.js')
+var {selectAll,User} = require('../../models/user.js');
 
-// var app = express();
-var router= express.Router()
+
+var router = express.Router();
 
 router.route('/user')
   .get(function(req, res) {
     selectAll(function(err, data) {
       if(err) {
-        console.log(err);
-        // res.sendStatus(500);
+        console.log("error user router : ", err);
       } else {
-        console.log(data);
-        res.send('success',data);
+        // res.send('all users');
+        res.send({data});
       }
     });
   });
- 
 
 router.route('/user/:id')
   .get(function(req, res) {
@@ -31,15 +29,13 @@ router.route('/user/:id')
       }
     })
   });
-  
-  
 
 router.route('/user')
     .post(function(req, res) {
-User.create(req.body)
+    console.log("request from angular");
+    User.create(req.body)
     .then(function(){
-       selectAll(function(err,data){
-         console.log(data);
+        selectAll(function(err,data){
         if(err){
           console.log(err)
         }
@@ -49,23 +45,23 @@ User.create(req.body)
       })
     })
   });
+
 router.route('/update')
 .post(function(req,res){
   var {id,certificatePath,picturePath,email,password,phone,city,specialty,address,fullName}=req.body
   console.log(req.body)
-   User.findByIdAndUpdate(id,
-     {
-       "fullName":fullName,
-       "certificatePath":certificatePath,
-       "picturePath":picturePath,
-       "password":password,
-       "city":city,
-       "phone":phone,
-       "specialty":specialty,
-       "address":address,
-       "email":email,}
-   ).catch(err=>{res.send('err',err)})
+  User.findByIdAndUpdate(id,
+      {
+        "fullName":fullName,
+        "certificatePath":certificatePath,
+        "picturePath":picturePath,
+        "password":password,
+        "city":city,
+        "phone":phone,
+        "specialty":specialty,
+        "address":address,
+        "email":email
+        }
+  ).catch(err=>{res.send('err',err)})
 })
-  
-  
 module.exports = router;

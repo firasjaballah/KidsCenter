@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
-   
+    "lint": "ng lint",
+    "server": "nodemon server/index.js"
   },
   "private": true,
   "dependencies": {
@@ -16,7 +16,9 @@
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
+    "@angular/flex-layout": "^13.0.0-beta.36",
     "@angular/forms": "~13.1.0",
+    "@angular/material": "^13.1.1",
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
@@ -24,8 +26,10 @@
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@ngneat/tailwind": "^7.0.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.1.2",
+    "nodemon": "^2.0.15",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
