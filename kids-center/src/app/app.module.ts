@@ -7,9 +7,14 @@ import { ResultComponent } from './result/result.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { ForgetComponent } from './components/forget/forget.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 import { SearchComponent } from './search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
+
 
 
 
@@ -26,10 +31,12 @@ import {HttpClientModule} from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
