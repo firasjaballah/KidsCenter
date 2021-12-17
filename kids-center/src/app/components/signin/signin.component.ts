@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
@@ -14,8 +15,9 @@ export class SigninComponent implements OnInit {
   
   constructor(
     private formSignIn: FormBuilder,
-    private http: HttpClient,
-    private shared:SharedService
+    private http      : HttpClient,
+    private shared    : SharedService,
+    private route     : Router 
   ) { }
     
   ngOnInit(): void {
@@ -34,12 +36,12 @@ export class SigninComponent implements OnInit {
         next: Response => {
           console.log(Response);
           this.result = Response;
-          this.shared.setuser(this.result)
+          this.shared.setuser(this.result);
+          this.route.navigateByUrl('/');
+
         },
         error: error   => console.log("error", error)
       });
-    // this.http.get('localhost:8000/user')
-    //   .subscribe(next => console.log("user added ..."));
 
   }
   

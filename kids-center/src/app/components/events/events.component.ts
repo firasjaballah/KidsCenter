@@ -12,7 +12,7 @@ export class EventsComponent implements OnInit {
   constructor(private shared :SharedService) { }
 
   ngOnInit(): void {
-    this.user=this.shared.getuser()
+    this.user = this.shared.getuser()
   }
   
   
