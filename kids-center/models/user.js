@@ -9,7 +9,7 @@ var userSchema = mongoose.Schema({
   phone:Number,
   email:String,
   picturePath:String,
-  certificatePath:String,
+  certificatePath:String
 });
 
 var User = mongoose.model('User', userSchema);
@@ -24,5 +24,5 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports= {selectAll,User}
+module.exports = {selectAll,User}
 

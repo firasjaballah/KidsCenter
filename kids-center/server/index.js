@@ -1,7 +1,42 @@
 var express = require("express");
 var app = express();
+const cookieSession = require("cookie-session");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/gfp", { useMongoClient: true });
-app.listen(5000, function () {
-    console.log(`listening on port http://localhost:5000 !`);
+const auth = require("./routers/auth.js");
+const users = require("./routers/users.js");
+var cors = require('cors');
+
+
+// mongoose
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/user").then(res => console.log("mongoose connected !"));
+
+//middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+//age of the cookie
+app.use(cookieSession({ 
+    maxAge: 365 * 24 * 60 * 60 * 1000, // 1 year in milliseconds
+    keys: ['secret_key']
+  })
+);
+
+//routes
+app.use("/auth", auth); // /auth/signin or /auth/signup
+app.use("/user", users); // /users (CRUD) /users/:userId (RUD)
+// app.use("/api/ownerposts", ownerPosts); // /api/ownerposts (CRUD)
+// app.use("/api/renterposts", renterPosts); // /api/renterposts (CRUD)
+
+// 404 errors
+app.use((req, res, next) => {
+  const err = new Error("Not found");
+  err.status = 404;
+  next(err);
 });
+
+// server listening
+app.listen(8000, function () {
+  console.log(`server listening on port: 8000 !`);
+});
+

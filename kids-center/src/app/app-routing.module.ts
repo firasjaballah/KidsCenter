@@ -4,8 +4,8 @@ import { EventsComponent } from './components/events/events.component';
 import { ForgetComponent } from './components/forget/forget.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ResultComponent } from './result/result.component';
-import { SearchComponent } from './search/search.component';
+import { ResultComponent } from './components/result/result.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
