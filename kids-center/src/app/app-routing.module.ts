@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'forget', component: ForgetComponent},
   {path:'result', component: ResultComponent},
   {path:'search', component: SearchComponent},
-  {path:'events',component:EventsComponent}
+  {path:'events', component: EventsComponent}
   
 
 ];
