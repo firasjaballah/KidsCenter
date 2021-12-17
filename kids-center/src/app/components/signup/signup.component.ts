@@ -12,14 +12,15 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-      private formBuilder: FormBuilder,
+      private formSignUp: FormBuilder,
       private http: HttpClient
     ) { }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    this.form = this.formSignUp.group({
       category: '',
       fullName: '',
+      username: '',
       email   : '',
       password: '',
       address : '',
@@ -29,7 +30,7 @@ export class SignupComponent implements OnInit {
 
   submit(): void {
     console.log(this.form.getRawValue());
-    this.http.post('http://localhost:8000/user', this.form.getRawValue())
+    this.http.post('http://localhost:8000/auth/signup', this.form.getRawValue())
     .subscribe({
       next:Response => console.log("Al right", Response),
       error:error   => console.log("error", error)
