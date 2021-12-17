@@ -33,16 +33,12 @@ export class SearchComponent implements OnInit {
       error:error   => console.log("error", error)
     });
   }
-  add():void {
-    this.http.post('http://localhost:8000/user', this.form.getRawValue())
-.subscribe({
-  next:Response => console.log("Al right", Response),
-  error:error   => console.log("error", error)
-});
-  }
-}
-// this.http.post('http://localhost:8000/user', this.form.getRawValue())
+  
+//   add():void {
+//     this.http.post('http://localhost:8000/user', this.form.getRawValue())
 // .subscribe({
 //   next:Response => console.log("Al right", Response),
 //   error:error   => console.log("error", error)
 // });
+//   }
+}
