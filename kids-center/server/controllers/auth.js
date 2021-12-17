@@ -20,7 +20,6 @@ module.exports = {
 
                const token = createToken(foundUser._id);
                res.cookie("jwt", token, { httpOnly: true, maxAge: 365 * 24 * 60 * 60 * 1000 });
-
                res.status(201).json(foundUser);
           } catch (error) {
                if (error === "Username not exist") res.json("Username not exist");
