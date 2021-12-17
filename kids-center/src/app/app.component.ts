@@ -1,4 +1,5 @@
 import { Component  } from '@angular/core';
+import { SharedService } from './shared/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,15 @@ import { Component  } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'kids-center';
+  user: any;
+  constructor(private shared: SharedService) { }
+
+  ngOnInit(): void {
+    
+    this.user = this.shared.getuser();
+    console.log('USER',this.user);
+    
+  }
+  
   
 }

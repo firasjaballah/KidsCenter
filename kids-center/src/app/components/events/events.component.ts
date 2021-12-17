@@ -15,7 +15,9 @@ export class EventsComponent implements OnInit {
     private http :HttpClient) { }
 
   ngOnInit(): void {
+    
     this.user=this.shared.getuser()
+    console.log(this.user)
     this.posts=this.http.get<[]>('/events')
   }
   

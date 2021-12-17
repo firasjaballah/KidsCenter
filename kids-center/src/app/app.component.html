@@ -8,7 +8,7 @@
   <span routerLink="/search" >Search</span>
   <span routerLink="/result" >Result</span>
   <div class="spacer-right"></div>
-  <span routerLink="/profile" >profile</span>
+  <span routerLink="/profile" >{{user ? user.fullname : "ABC"}}</span>
   <span class="navbar-title" routerLink="/signin">Sign In</span>
 </div>
 
