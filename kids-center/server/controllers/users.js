@@ -9,8 +9,8 @@ module.exports = {
                // the server will try the following
                const users = await User
                     .find({})
-                    .populate(["parent", "provider"])
-                    .select('-password')
+                    // .populate(["parent", "provider"])
+                    // .select('-password')
 
                res.status(200).json(users);
           } catch (error) {
