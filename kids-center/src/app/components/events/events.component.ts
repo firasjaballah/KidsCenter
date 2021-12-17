@@ -11,11 +11,12 @@ import { HttpClient } from '@angular/common/http';
 export class EventsComponent implements OnInit {
   posts:any
   user:any
-  constructor(private shared :SharedService) { }
+  constructor(private shared :SharedService ,
+    private http :HttpClient) { }
 
   ngOnInit(): void {
     this.user=this.shared.getuser()
-    // this.posts=this.http.get()
+    this.posts=this.http.get<[]>('/events')
   }
   
   
