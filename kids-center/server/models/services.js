@@ -5,7 +5,7 @@ var serviceSchema = mongoose.Schema({
   fullname: { type: String },
   username: { type: String },
   email   : { type: String },
-  
+  specialty:{ type: String},
   adresse : { type: String },
   city    : { type: String },
   phone   : { type: String, default : "" },
@@ -14,6 +14,14 @@ var serviceSchema = mongoose.Schema({
 },{ timestamps: true });
 
 
+//   "category":"serviceProvider",
+// "fullname":"test,
+// "specialty":"English",
+// "username":"jess",
+// "email":"jesser@gmail.com",
+// "adresse":"tunis",
+// "city":"tunis",
+// "phone":55
 
 
 var Service = mongoose.model('Service', serviceSchema);

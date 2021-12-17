@@ -1,7 +1,7 @@
 <div class="search">
   <div class="searchField">
     <form [formGroup]="form" (submit)="submit()">
-      <input formControlName="fullName" type="text" value="" />
+      <input formControlName="fullname" type="text" value="" />
       <select formControlName="city" name="City" value="" size="1">
         <option value="">City</option>
         <option value="Tunis">Tunis</option>
@@ -42,7 +42,21 @@
       </select>
 
       <button type="submit">Search</button>
-      <button type="button" (click)="myfilter(data, users)">result</button>
+     
     </form>
+    <div class='card' >
+      <div>
+      <ul >
+          <li>
+      <img   src="" alt="Image" />
+      </li>
+      <li *ngFor="let provider of this.result" >
+      <h3>{{provider.fullname}}</h3>
+      <h3>{{provider.city}}</h3>
+      <h3>{{provider.phone}}</h3>
+      </li>
+      </ul>
+    </div>
+      </div>
 </div>
   </div>
