@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,27 +11,30 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   form  : FormGroup;
   result: Object;
-
+  
   constructor(
     private formSignIn: FormBuilder,
-    private http      : HttpClient,
-    private router    : Router
+    private http: HttpClient,
+    private shared:SharedService
   ) { }
-
+    
   ngOnInit(): void {
     this.form = this.formSignIn.group({
       username : '',
       password : ''
     })
+    
   }
-
+  
+ 
   submit(): void {
-    console.log(this.form.getRawValue());
+    // console.log(this.form.getRawValue());
     this.http.post('http://localhost:8000/auth/signin', this.form.getRawValue())
       .subscribe({
         next: Response => {
           console.log(Response);
-          this.router.navigateByUrl('/pprofile');
+          this.result = Response;
+          this.shared.setuser(this.result)
         },
         error: error   => console.log("error", error)
       });
@@ -39,5 +42,6 @@ export class SigninComponent implements OnInit {
     //   .subscribe(next => console.log("user added ..."));
 
   }
+  
 
 }

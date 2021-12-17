@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared/shared.service';
+
 
 @Component({
   selector: 'app-events',
@@ -6,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-
-  constructor() { }
+  user:any
+  constructor(private shared :SharedService) { }
 
   ngOnInit(): void {
+    this.user=this.shared.getuser()
   }
+  
+  
   states:string[]=[
     "Tunis","Ariana","Ben arous","Manouba","Sousse","Sfax","Gabes",
   "Médenine","Mahdia","Béja","Bizerte","Gafsa","Jendouba","Kairouan","Kasserine","Kef",
@@ -63,7 +68,9 @@ export class EventsComponent implements OnInit {
   
   selectedValue:string
   selectedstate:string
+  
   onfilter(){
+    console.log(this.user)
     this.selectedstate=this.selectedValue
   }
 
