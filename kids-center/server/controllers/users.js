@@ -9,8 +9,11 @@ module.exports = {
                // the server will try the following
                const users = await User
                     .find({})
+<<<<<<< HEAD
                     // .populate(["parent", "provider"])
                     // .select('-password')
+=======
+>>>>>>> 263c3ae3f2f7b4ec9900488bb9e2ca736f8de28e
 
                res.status(200).json(users);
           } catch (error) {
@@ -23,8 +26,6 @@ module.exports = {
                // the server will try the following
                const foundUser = await User
                     .findById(req.params.userId)
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(foundUser);
           } catch (error) {
@@ -37,8 +38,6 @@ module.exports = {
                // the server will try the following
                const user = await User
                     .findByIdAndUpdate(req.params.userId, req.body, { new: true })
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(user)
           } catch (error) {
@@ -51,8 +50,6 @@ module.exports = {
                // the server will try the following
                const removedUser = await User
                     .findByIdAndRemove(req.params.userId)
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(removedUser)
           } catch (error) {
