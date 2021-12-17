@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/shared.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -8,11 +9,13 @@ import { SharedService } from 'src/app/shared/shared.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
+  posts:any
   user:any
   constructor(private shared :SharedService) { }
 
   ngOnInit(): void {
     this.user=this.shared.getuser()
+    // this.posts=this.http.get()
   }
   
   
