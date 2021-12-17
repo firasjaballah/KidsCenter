@@ -6,6 +6,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ResultComponent } from './components/result/result.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'forget', component: ForgetComponent},
   {path:'result', component: ResultComponent},
   {path:'search', component: SearchComponent},
-  {path:'events',component:EventsComponent}
+  {path:'events', component: EventsComponent},
+  {path:'profile', component: ProfileComponent}
   
 
 ];
