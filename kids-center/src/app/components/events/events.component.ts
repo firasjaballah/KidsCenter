@@ -20,11 +20,14 @@ export class EventsComponent implements OnInit {
     this.user=this.shared.getuser()
     console.log(this.user)
     this.posts=this.http.get<[]>('/events')
-    console.log(this.posts)
+    console.log('here',this.posts)
   }
   addPost(){
     this.route.navigateByUrl('/addEvent');
     // this.http.get<[]>('/events')
+  }
+  comments(){
+    this.route.navigateByUrl('/comments')
   }
   
   states:string[]=[

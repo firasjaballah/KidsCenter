@@ -8,6 +8,7 @@ import { ResultComponent } from './components/result/result.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
+import { EventCommentsComponent } from './components/event-comments/event-comments.component';
 
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'search', component: SearchComponent},
   {path:'events', component: EventsComponent},
   {path:'profile', component: ProfileComponent},
-  {path:'addEvent', component: AddEventComponent}
+  {path:'addEvent', component: AddEventComponent},
+  {path:'comments', component:  EventCommentsComponent }
   
 
 ];

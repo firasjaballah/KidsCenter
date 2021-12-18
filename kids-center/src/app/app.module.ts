@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AddEventComponent } from './components/add-event/add-event.component'
 import { SearchFilterPipe } from './components/search/search-filter.pipe';
+import { EventCommentsComponent } from './components/event-comments/event-comments.component';
 
 
 
@@ -37,6 +38,7 @@ import { SearchFilterPipe } from './components/search/search-filter.pipe';
     SearchComponent,
     AddEventComponent,
     SearchFilterPipe,
+    EventCommentsComponent,
  
   ],
   imports: [

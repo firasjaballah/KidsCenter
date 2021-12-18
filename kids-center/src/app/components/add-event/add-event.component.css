@@ -1,5 +1,8 @@
+.container{
+    margin-top: 120px;
+}
 body {
-    margin-top: 200px;
+    margin-top: 20px;
     background: #f6f9fc;
 }
 .account-block {
@@ -38,4 +41,9 @@ body {
     background-color: #5369f8;
     border-color: #5369f8;
     color: #fff;
+}
+img{
+    height: 526px;
+    width: 456px;
+
 }

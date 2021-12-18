@@ -38,7 +38,6 @@ export class SigninComponent implements OnInit {
           this.result = Response;
           this.shared.setuser(this.result);
           this.route.navigateByUrl('/');
-
         },
         error: error   => console.log("error", error)
       });
