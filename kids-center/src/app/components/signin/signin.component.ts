@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SharedService } from 'src/app/shared/shared.service';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+// import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,16 +13,22 @@ import { SharedService } from 'src/app/shared/shared.service';
 })
 export class SigninComponent implements OnInit {
   form  : FormGroup;
-  result: Object;
+  result: any;
+  user  : any;
+  subscription: Subscription;
   
+  @Output() isLoggedIn = new EventEmitter();
+
   constructor(
     private formSignIn: FormBuilder,
     private http      : HttpClient,
-    private shared    : SharedService,
-    private route     : Router 
+    // private shared    : SharedService,
+    private data      : DataService,
+    private route     : Router    
   ) { }
     
   ngOnInit(): void {
+    this.subscription = this.data.currentMessage.subscribe(message => this.user = message)
     this.form = this.formSignIn.group({
       username : '',
       password : ''
@@ -28,7 +36,6 @@ export class SigninComponent implements OnInit {
     
   }
   
- 
   submit(): void {
     // console.log(this.form.getRawValue());
     this.http.post('http://localhost:8000/auth/signin', this.form.getRawValue())
@@ -36,13 +43,19 @@ export class SigninComponent implements OnInit {
         next: Response => {
           console.log(Response);
           this.result = Response;
-          this.shared.setuser(this.result);
+          this.data.changeMessage(Response);
           this.route.navigateByUrl('/');
+<<<<<<< HEAD
+=======
+          // this.shared.setuser(this.result);
+          
+>>>>>>> acb0f21e1769a2e99da1a5171e546fd36847a7a0
         },
-        error: error   => console.log("error", error)
+        error: error   => {
+          this.result = "Incorrect username/password";
+          console.log(this.result);
+        }
       });
-
   }
-  
 
 }
