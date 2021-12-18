@@ -7,6 +7,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ResultComponent } from './components/result/result.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
 
 
 
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path:'result', component: ResultComponent},
   {path:'search', component: SearchComponent},
   {path:'events', component: EventsComponent},
-  {path:'profile', component: ProfileComponent}
-  
+  {path:'profile', component: ProfileComponent},
+  {path:'editprofile', component: EditprofileComponent}
 
 ];
 

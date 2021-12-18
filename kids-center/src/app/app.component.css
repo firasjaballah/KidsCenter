@@ -75,3 +75,9 @@ p {
     transform: scaleX(1) rotate(0deg);
     transition-delay: 0s, 0.3s, 0.6s;
 }
+
+.user-logo{
+    width : 25px;
+    height: 25px;
+    border-radius: 50%;
+}
