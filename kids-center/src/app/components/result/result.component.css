@@ -1,0 +1,19 @@
+/* .bigdiv{
+margin: 5%;
+min-height: 300px;
+box-sizing: 10%;
+margin-top:20px;
+  
+    display: inline-flex;
+    justify-content: center ;
+} */
+.testdiv{
+   
+    margin:5%;
+    text-align:center;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-between;
+ 
+    
+}
