@@ -4,6 +4,7 @@ const cookieSession = require("cookie-session");
 const mongoose = require("mongoose");
 const auth = require("./routers/auth.js");
 const users = require("./routers/users.js");
+const events=require("./routers/events.js")
 const services = require("./routers/services.js")
 var cors = require('cors');
 
@@ -29,6 +30,7 @@ app.use("/user", users); // /users (CRUD) /users/:userId (RUD)
 app.use("/services", services);
 // app.use("/api/ownerposts", ownerPosts); // /api/ownerposts (CRUD)
 // app.use("/api/renterposts", renterPosts); // /api/renterposts (CRUD)
+app.use("/events",events);
 
 // 404 errors
 app.use((req, res, next) => {

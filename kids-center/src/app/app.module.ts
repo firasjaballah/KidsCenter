@@ -19,7 +19,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AddEventComponent } from './components/add-event/add-event.component'
 import { SearchFilterPipe } from './components/search/search-filter.pipe';
+import { EventCommentsComponent } from './components/event-comments/event-comments.component';
 
 
 
@@ -34,7 +36,9 @@ import { SearchFilterPipe } from './components/search/search-filter.pipe';
     EventsComponent,
     ResultComponent,
     SearchComponent,
+    AddEventComponent,
     SearchFilterPipe,
+    EventCommentsComponent,
  
   ],
   imports: [
