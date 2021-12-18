@@ -1,16 +1,21 @@
 var mongoose = require('mongoose');
 
-var userSchema = mongoose.Schema({
-  fullname:String,
-  city:String,
-  specialty:String,
-  password:String,
-  address:String,
-  phone:Number,
-  email:String,
-  picturePath:String,
-  certificatePath:String
-});
+
+const userSchema = mongoose.Schema({
+  category: { type: String },
+  fullname: { type: String },
+  username: { type: String },
+  email   : { type: String },
+  password: { type: String },
+  adress : { type: String },
+  city    : { type: String },
+  specialty: { type: String, default : "" },
+  phone   : { type: String, default : "" },
+  connect : { type: Boolean, default: false },
+  user_img: { type: String, default: "https://www.bootdey.com/img/Content/avatar/avatar7.png" },
+},{ timestamps: true });
+
+
 
 
 
