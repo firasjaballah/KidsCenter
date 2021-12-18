@@ -3,40 +3,41 @@
         <div class="row align-items-center flex-row-reverse">
             <div class="col-lg-6">
                 <div class="about-text go-to">
-                    <h3 class="dark-color">{{FullName}} </h3>
-                    <h6 class="theme-color lead">{{title}}</h6>
-                    <p> {{description}}</p>
+                    <h3 class="dark-color">{{user.fullname}} </h3>
+                    <button routerLink="/editprofile" type="button" class="btn btn-primary">Update</button>
+                    <h6 class="theme-color lead">{{user.title}}</h6>
+                    <p> {{user.description}}</p>
                     <div class="row about-list">
                         <div class="col-md-6">
                             <div class="media">
-                                <label>Age</label>
-                                <p>{{Age}}</p>
+                                <label>Username</label>
+                                <p>{{user.username}}</p>
                             </div>
                             <div class="media">
                                 <label>Experience</label>
-                                <p>{{experience}} yr</p>
+                                <p>{{user.experience}} yr</p>
                             </div>
                             <div class="media">
                                 <label>city</label>
-                                <p>{{city}}</p>
+                                <p>{{user.city}}</p>
                             </div>
                             <div class="media">
                                 <label>Address</label>
-                                <p>{{adresse}}</p>
+                                <p>{{user.adress}}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="media">
                                 <label>E-mail</label>
-                                <p>{{email}}</p>
+                                <p>{{user.email}}</p>
                             </div>
                             <div class="media">
                                 <label>Phone</label>
-                                <p>{{phone}}</p>
+                                <p>{{user.phone}}</p>
                             </div>
                             <div class="media">
                                 <label>Skype</label>
-                                <p>{{phone}}</p>
+                                <p>{{user.phone}}</p>
                             </div>
                             <!-- <div class="media">
                                 <label>Freelance</label>
