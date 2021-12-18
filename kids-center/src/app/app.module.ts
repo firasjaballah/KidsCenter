@@ -20,6 +20,7 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -34,6 +35,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
     ResultComponent,
     SearchComponent,
     EditprofileComponent,
+    ProfileComponent,
  
   ],
   imports: [

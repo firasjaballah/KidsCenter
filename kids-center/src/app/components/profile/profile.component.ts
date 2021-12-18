@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+    // mydata:any="data"
  FullName:string ="sahar";
  title:string="fullstack developper";
  description:string="services for customers of all sizes";
@@ -19,6 +22,8 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    
   }
 
 }
