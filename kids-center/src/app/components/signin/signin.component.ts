@@ -45,11 +45,8 @@ export class SigninComponent implements OnInit {
           this.result = Response;
           this.data.changeMessage(Response);
           this.route.navigateByUrl('/');
-<<<<<<< HEAD
-=======
           // this.shared.setuser(this.result);
           
->>>>>>> acb0f21e1769a2e99da1a5171e546fd36847a7a0
         },
         error: error   => {
           this.result = "Incorrect username/password";

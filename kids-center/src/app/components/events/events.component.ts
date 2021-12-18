@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/shared.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AnyArray } from 'mongoose';
 
 @Component({
   selector: 'app-events',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  posts:any
+  posts:any=[]
   user:any
   constructor(private shared :SharedService ,
     private http :HttpClient,
@@ -19,12 +20,22 @@ export class EventsComponent implements OnInit {
     
     this.user=this.shared.getuser()
     console.log(this.user)
-    this.posts=this.http.get<[]>('/events')
-    console.log('here',this.posts)
+    this.http.get('http://localhost:8000/events')
+    
+    .subscribe({
+      next:Response => {
+        console.log("response",Response);
+        this.posts=Response
+        console.log("here",this.posts);
+    },
+      error:error   => console.log("error", error)
+    });
   }
+ 
+    
   addPost(){
     this.route.navigateByUrl('/addEvent');
-    // this.http.get<[]>('/events')
+    
   }
   comments(){
     this.route.navigateByUrl('/comments')
@@ -37,50 +48,6 @@ export class EventsComponent implements OnInit {
   ]
 
 
-  events=[
-    {
-      title:'food party',
-      image:'https://www.threehillssportspark.co.uk/wp-content/uploads/2019/01/kids-party.png',
-      date:'01/01/2022 at 06 pm',
-      location:'Kids Event House',
-      fee:'30$ per child',
-      Description:'A party for kids where they can play and enjoy foods and make new freinds',
-      contact:'99 999 999'
-    },
-    {
-      title:'food party',
-      image:'https://www.threehillssportspark.co.uk/wp-content/uploads/2019/01/kids-party.png',
-      date:'01/01/2022 at 06 pm',
-      location:'Kids Event House',
-      fee:'30$ per child',
-      Description:'A party for kids where they can play and enjoy foods and make new freinds',
-      contact:'99 999 999'
-    },{
-      title:'food party',
-      image:'https://www.threehillssportspark.co.uk/wp-content/uploads/2019/01/kids-party.png',
-      date:'01/01/2022 at 06 pm',
-      location:'Kids Event House',
-      fee:'30$ per child',
-      Description:'A party for kids where they can play and enjoy foods and make new freinds',
-      contact:'99 999 999'
-    },{
-      title:'food party',
-      image:'https://www.threehillssportspark.co.uk/wp-content/uploads/2019/01/kids-party.png',
-      date:'01/01/2022 at 06 pm',
-      location:'Kids Event House',
-      fee:'30$ per child',
-      Description:'A party for kids where they can play and enjoy foods and make new freinds',
-      contact:'99 999 999'
-    },{
-      title:'food party',
-      image:'https://www.threehillssportspark.co.uk/wp-content/uploads/2019/01/kids-party.png',
-      date:'01/01/2022 at 06 pm',
-      location:'Kids Event House',
-      fee:'30$ per child',
-      description:'A party for kids where they can play and enjoy foods and make new freinds',
-      contact:'99 999 999'
-    }
-  ]
   
   selectedValue:string
   selectedstate:string
