@@ -9,9 +9,10 @@ const userSchema = mongoose.Schema({
           password: { type: String },
           adresse : { type: String },
           city    : { type: String },
+          specialty: { type: String, default : "" },
           phone   : { type: String, default : "" },
           connect : { type: Boolean, default: false },
-          user_img: { type: String, default : "https://www.propertycentral.co.ke/assets/images/profiles/default.jpg" },
+          user_img: { type: String, default: "https://www.bootdey.com/img/Content/avatar/avatar7.png" },
      },{ timestamps: true });
 
 userSchema.statics.login = async function (username, plainTextPassword) {
