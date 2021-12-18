@@ -22,22 +22,26 @@ module.exports = {
                res.cookie("jwt", token, { httpOnly: true, maxAge: 365 * 24 * 60 * 60 * 1000 });
                res.status(201).json(foundUser);
           } catch (error) {
-               if (error === "Username not exist") res.json("Username not exist");
-               else res.json("Incorrect username/password");
+               res.status(400).send(error);
           }
      },
      signup: async (req, res, next) => {
-          const { username, fullName, email, address, category, password, city } = req.body;
+          // const { username, fullname, email, address, category, password, city } = req.body;
           try {
-               const savedUser = await User.create({
-                    category,
-                    fullName,
-                    username,
-                    email,
-                    password,
-                    address,
-                    city
-               });
+               const savedUser = await User.create(req.body);
+               // ({
+               //      category
+               //      fullname
+               //      username
+               //      email
+               //      password
+               //      adresse
+               //      city
+               //      specialty
+               //      phone
+               //      connect
+               //      user_img 
+               // });
 
                const foundUser = await User
                     .findById(savedUser._id)

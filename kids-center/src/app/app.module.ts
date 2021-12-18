@@ -18,7 +18,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { SearchFilterPipe } from './components/search/search-filter.pipe';
+
 
 
 
@@ -32,6 +34,7 @@ import {HttpClientModule} from '@angular/common/http'
     EventsComponent,
     ResultComponent,
     SearchComponent,
+    SearchFilterPipe,
  
   ],
   imports: [

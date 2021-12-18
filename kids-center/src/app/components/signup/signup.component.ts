@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   form  : FormGroup;
+  showSpecialty: boolean = false;
 
   constructor(
       private formSignUp: FormBuilder,
@@ -20,18 +21,24 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formSignUp.group({
+      specialty: '',
       category: '',
-      fullName: '',
+      fullname: '',
       username: '',
       email   : '',
       password: '',
+      phone   : '',
       address : '',
       city    : ''
     });
   }
 
+  show(){
+    this.showSpecialty = true;
+  }
+
   submit(): void {
-    // console.log(this.form.getRawValue());
+    console.log(this.form.getRawValue());
     this.http.post('http://localhost:8000/auth/signup', this.form.getRawValue())
     .subscribe({
       next:Response => {
@@ -42,5 +49,5 @@ export class SignupComponent implements OnInit {
     });
     
   }
-
+    
 }
