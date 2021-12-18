@@ -14,8 +14,11 @@ const userSchema = mongoose.Schema({
           fullname: { type: String },
           username: { type: String },
           email   : { type: String },
+          specialty:{ type: String },
           password: { type: String },
-          adress : { type: String },
+
+          address : { type: String },
+
           city    : { type: String },
           specialty: { type: String, default : "" },
           title: { type: String, default : "" },

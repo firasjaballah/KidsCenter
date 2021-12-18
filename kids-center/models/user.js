@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+
 const userSchema = mongoose.Schema({
   category: { type: String },
   fullname: { type: String },
@@ -13,6 +14,7 @@ const userSchema = mongoose.Schema({
   connect : { type: Boolean, default: false },
   user_img: { type: String, default: "https://www.bootdey.com/img/Content/avatar/avatar7.png" },
 },{ timestamps: true });
+
 
 
 

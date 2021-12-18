@@ -19,8 +19,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
 import { ProfileComponent } from './components/profile/profile.component';
+
+import { AddEventComponent } from './components/add-event/add-event.component'
+import { SearchFilterPipe } from './components/search/search-filter.pipe';
+import { EventCommentsComponent } from './components/event-comments/event-comments.component';
+
+
 
 
 
@@ -34,8 +41,14 @@ import { ProfileComponent } from './components/profile/profile.component';
     EventsComponent,
     ResultComponent,
     SearchComponent,
+
     EditprofileComponent,
     ProfileComponent,
+
+    AddEventComponent,
+    SearchFilterPipe,
+    EventCommentsComponent,
+
  
   ],
   imports: [
