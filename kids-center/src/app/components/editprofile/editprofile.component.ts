@@ -20,22 +20,21 @@ export class EditprofileComponent implements OnInit {
       FullName:"",
       title:"",
       description:"",
-      Age:"50",
+      Age:"",
       email:"",
-      adresse:"ariana.tunis",
-      city :"ariana",
+      adresse:"",
+      city :"",
       phone:"",
       user_img:"",
       experience:""  
     })
   }
   submit(): void {
-    // console.log(this.form.getRawValue());
-    this.http.post('http://localhost:8000/editprofile', this.form.getRawValue())
+    this.http.post('http://localhost:8000/profile/_Id/', this.form.getRawValue())
     .subscribe({
       next:Response => {
-        console.log("Al right", Response);
-        this.route.navigateByUrl('editprofile');
+        console.log("Edited", Response);
+        this.route.navigateByUrl('/profile/:userId');
       },
       error:error   => console.log("error", error)
     });

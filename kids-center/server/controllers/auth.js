@@ -27,17 +27,8 @@ module.exports = {
           }
      },
      signup: async (req, res, next) => {
-          const { username, fullName, email, address, category, password, city } = req.body;
           try {
-               const savedUser = await User.create({
-                    category,
-                    fullName,
-                    username,
-                    email,
-                    password,
-                    address,
-                    city
-               });
+               const savedUser = await User.create(req.body);
 
                const foundUser = await User
                     .findById(savedUser._id)

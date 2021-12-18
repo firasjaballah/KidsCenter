@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -19,8 +20,10 @@ export class ProfileComponent implements OnInit {
  phone:string="254682"
  user_img:""
  experience:string="10"
-  constructor() { }
-
+  constructor(private http:HttpClient) { }
+  // getprofile(){
+  //   return this.http.get()
+  // }
   ngOnInit(): void {
 
     

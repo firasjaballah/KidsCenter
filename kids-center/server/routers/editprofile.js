@@ -3,10 +3,11 @@ const router = express.Router();
 
 const editprofileController = require("../controllers/users");
 
-router.route("/")
+router.route("/editprofile")
   .get(editprofileController.find_All)
-
-router.route("/:userId")
+router.post("/editprofile", editprofileController.update_One);
+router
+.route("editprofile/:userId")
   .get(editprofileController.find_One) 
   .put(editprofileController.update_One) 
   .delete(editprofileController.remove_One)  
