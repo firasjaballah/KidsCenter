@@ -27,16 +27,18 @@ module.exports = {
           }
      },
      signup: async (req, res, next) => {
-          const { username, fullName, email, address, category, password, city } = req.body;
+          const { username, fullname, email, address, category, password, city,phone,specialty } = req.body;
           try {
                const savedUser = await User.create({
                     category,
-                    fullName,
+                    fullname,
                     username,
                     email,
                     password,
                     address,
-                    city
+                    city,
+                    phone,
+                    specialty
                });
 
                const foundUser = await User
