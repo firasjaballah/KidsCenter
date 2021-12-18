@@ -20,16 +20,8 @@ export class SearchComponent implements OnInit {
       fullname: "",
       specialty: ""
     });
-    this.http.get('http://localhost:8000/services')
-    .subscribe({
-      next:Response => {
-        console.log("response",Response);
-        this.result=Response
-        console.log("result",this.result);
-    },
-      error:error   => console.log("error", error)
-    });
-    
+   
+   this.submit() 
   }
  
   submit(): void {
