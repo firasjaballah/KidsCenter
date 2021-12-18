@@ -10,77 +10,59 @@ export class SearchComponent implements OnInit {
   form  : FormGroup;
   users : Array<Object>;
   data  : Object;
-  result: Object;
+  result:any;
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient) {
   }
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       city: "",
-      fullName: "",
+      fullname: "",
       specialty: ""
-    })
+    });
+    this.http.get('http://localhost:8000/services')
+    .subscribe({
+      next:Response => {
+        console.log("response",Response);
+        this.result=Response
+        console.log("result",this.result);
+    },
+      error:error   => console.log("error", error)
+    });
+    
   }
-  onChange(event: any) {
-    console.log("hi");
-  }
+ 
   submit(): void {
     console.log(this.form.getRawValue());
-    this.data = this.form.getRawValue();
-    this.http.get('http://localhost:8000/user', this.form.getRawValue())
-      .subscribe({
-        next: Response => {
-          console.log("user added", Response);
-          this.users = [Response];
-        },
-        error: error => console.log("error", error)
-      });
+    let params = this.form.getRawValue()
+    // let params = new HttpParams().set("paramName",this.form.city).set("paramName2", paramValue2);
+    this.http.get('http://localhost:8000/services',{params})
+    .subscribe({
+      next:Response => {
+        console.log("response",Response);
+        this.result=Response
+        console.log("result",this.result);
+    },
+      error:error   => console.log("error", error)
+    });
   }
-  myfilter(data: Object, y:Array<Object>): void {
-    var myArr: Array<Object>;
-    // var data = this.form.getRawValue();
-    // var y    = this.users;
-    // console.log("myArr : ", data);
-    // console.log("y : ",y);
-    
-    // { city: 'Médenine', fullName: 'firas', specialty: 'English' }
+  
+  //   add():void {
+//     this.http.post('http://localhost:8000/user', this.form.getRawValue())
+// .subscribe({
+//   next:Response => console.log("Al right", Response),
+//   error:error   => console.log("error", error)
+// });
+//   }
 
-    myArr = y.filter(ele => {
-      // if ((data.fullName !== "") && (data.city !== "") && (data.specialty !== "")) {
-      //   if ((data.specialty === ele.specialty) && (ele.full.toUpperCase().indexOf(data.fullName.toUpperCase()) !== -1) && (data.city === ele.city))
-      //     return ele
-      // }
-      // else if ((data.fullName !== "") && (data.city !== "")) {
-      //   if ((ele.full.toUpperCase().indexOf(data.fullName.toUpperCase()) !== -1) && (data.city === ele.city))
-      //     return ele
-      // }
-      // else if ((data.fullName !== "") && (data.specialty !== "")) {
-      //   if ((data.specialty === ele.specialty) && (ele.full.toUpperCase().indexOf(data.fullName.toUpperCase()) !== -1))
-      //     return ele
-      // }
-      // else if ((data.city !== "") && (data.specialty !== "")) {
-      //   if ((data.specialty === ele.specialty) && (data.city === ele.city))
-      //     return ele
-      // }
-      // else if (data.specialty !== "") {
-      //   if (data.specialty === ele.specialty)
-      //     return ele
-      // }
-      // else if (data.city !== "") {
-      //   if (data.city === ele.city)
-      //     return ele
-      // }
-      // else if (data.fullName !== "") {
-      //   if (ele.full.toUpperCase().indexOf(data.fullName.toUpperCase()) !== -1)
-      //     return ele
-      // }
-      // else {
-      //   return ele
-      // }
-      return ele;
-    })//closing tag of filter
-    console.log("filter : ", data);
-    console.log("y : ", y);
-    console.log("search result : ", myArr);
-  }
 }
+// adresse: "tunis"
+// category: "serviceProvider"
+// city: "tunis"
+// connect: false
+// email: "jesser@gmail.com"
+// fullname: "test"
+// phone: "55"
+// user_img: "https://www.propertycentral.co.ke/assets/images/profiles/default.jpg"
+// username: "jess"
+// _id: "61bcc0f5787a8ec6b952437f"
