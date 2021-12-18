@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Service = require("../models/services.js")
-const servicesController = require("../controllers/services");
+const user = require("../models/user.js")
+const UsersController = require("../controllers/users");
 
 router.route("/")
-  .get(servicesController.find)
+  .get(UsersController.find)
   
  
 // router.route("/:servicesId")
