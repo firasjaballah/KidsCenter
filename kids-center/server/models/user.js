@@ -1,15 +1,26 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-
+// FullName:"",
+// title:"",
+// description:"",
+// email:"",
+// adresse:"",
+// city :"",
+// phone:"",
+// user_img:"",
+// experience:""  
 const userSchema = mongoose.Schema({
           category: { type: String },
           fullname: { type: String },
           username: { type: String },
           email   : { type: String },
           password: { type: String },
-          adresse : { type: String },
+          address : { type: String },
           city    : { type: String },
           specialty: { type: String, default : "" },
+          title: { type: String, default : "" },
+          description: { type: String, default : "" },
+          experience : { type: String, default : "" },
           phone   : { type: String, default : "" },
           connect : { type: Boolean, default: false },
           user_img: { type: String, default: "https://www.bootdey.com/img/Content/avatar/avatar7.png" },
