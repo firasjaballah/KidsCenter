@@ -25,8 +25,9 @@
                             <img src={{comment.user.user_img}} class="d-flex mr-3 fa fa-user-circle-o fa-3x usercommentimg">
                             <div class="media-body">
                                 <h5 class="mt-0 font400 clearfix">
-                                    <a href="#" class="float-right">Reply</a>
+                                    <a *ngIf="verifyOwner(comment)" class="float-left" (click)="delete_comment(comment)">delete</a>
                                     {{comment.user.username}}
+                                
                                 </h5> {{comment.text}}
                             </div>
                         </div>

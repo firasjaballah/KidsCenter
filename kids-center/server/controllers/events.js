@@ -31,7 +31,7 @@ module.exports = {
   },
   find_One: async (req, res, next) => {
     try {
-      const eventsFound = await Events.find(req.params.state);
+      const eventsFound = await Events.find({ city: req.body.state });
 
       res.status(200).json(eventsFound);
     } catch (error) {
@@ -39,14 +39,13 @@ module.exports = {
     }
   },
   update_One: async (req, res, next) => {
-    console.log("request",req.body)
+    console.log("request", req.body);
     try {
       const event = await Events.findByIdAndUpdate(
-        {_id:req.body._id},
-        {"$push":{comments:req.body.comment}},
+        { _id: req.body._id },
+        { $push: { comments: req.body.comment } },
         { new: true }
       );
-
       res.status(200).json(event);
     } catch (error) {
       next(error);
@@ -55,10 +54,18 @@ module.exports = {
   remove_One: async (req, res, next) => {
     try {
       const removedEvent = await Events.findByIdAndRemove(req.params.EventId);
-
       res.status(200).json(removedEvent);
     } catch (error) {
       next(error);
     }
   },
+  delete_comment: async (req, res, next) => {
+   
+    try {
+      const removedComment = await Events.findOneAndUpdate({_id:req.body._id}, {$pull : {comments:req.body.comment}});
+      res.status(200).json(removedComment);
+    } catch (error) {
+      next(error);
+    }
+  }
 };

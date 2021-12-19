@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/shared.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AnyArray } from 'mongoose';
+
 
 @Component({
   selector: 'app-events',
@@ -12,6 +12,9 @@ import { AnyArray } from 'mongoose';
 export class EventsComponent implements OnInit {
   posts:any=[]
   user:any
+  selectedValue:string
+  city:any
+  
   
   constructor(private shared :SharedService ,
     private http :HttpClient,
@@ -32,7 +35,11 @@ export class EventsComponent implements OnInit {
       error:error   => console.log("error", error)
     });
   }
- 
+ filter(){
+   this.city=this.selectedValue
+   console.log(this.selectedValue)
+
+ }
     
   addPost(){
     this.route.navigateByUrl('/addEvent');
@@ -51,12 +58,24 @@ export class EventsComponent implements OnInit {
 
 
   
-  selectedValue:string
-  selectedstate:string
+ 
   
   onfilter(){
     console.log(this.user)
-    this.selectedstate=this.selectedValue
+    this.city=this.selectedValue
+    
+      this.http.get('http://localhost:8000/events/events',this.city)
+    
+  .subscribe({
+    next:Response => {
+      console.log("response",Response);
+      this.posts=Response
+      console.log("here",this.posts);
+      this.route.navigateByUrl('/events')
+
+  },
+    error:error   => console.log("error", error)
+  });
   }
 
 }

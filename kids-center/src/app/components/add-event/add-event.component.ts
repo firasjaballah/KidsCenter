@@ -24,7 +24,7 @@ export class AddEventComponent implements OnInit {
     date:'',
     event_img:"",
     description:"",
-    likes:0,
+    fees:0,
     comments:[]
     })
   }
@@ -44,5 +44,7 @@ export class AddEventComponent implements OnInit {
         }
       });
   }
-myGroup(){}
+  image_preview(){
+    return this.form.getRawValue().event_img
+  }
 }
