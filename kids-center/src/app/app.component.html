@@ -9,6 +9,8 @@
   <span class="navbar-title" routerLink="/result">Home</span>
   <span routerLink="/events" >Events</span>
   <span routerLink="/search" >Search</span>
+  <span routerLink="/result" >Result</span>
+  <span routerLink="/admin/index" >admin</span>
   <div class="spacer-right"></div>
   <span routerLink="/profile" *ngIf="isLogged()"><img src={{user.user_img}} class="user-logo" />{{user.username}}</span>
   <span class="navbar-title" routerLink="/signin"  *ngIf="!isLogged()">Sign In</span>
