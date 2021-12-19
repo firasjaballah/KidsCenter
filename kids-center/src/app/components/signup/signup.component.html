@@ -5,20 +5,32 @@
                <div class="form-category">
                     You are :
                     <div class="form-check form-check-inline">
-                         <input formControlName="category" class="form-check-input m-2" type="radio" name="category" id="inlineRadio1" value="parent" checked>
+                         <input formControlName="category" ngModel="category"  class="form-check-input m-2" type="radio" name="category" id="inlineRadio1" value="parent" checked>
                          <label class="form-check-label" for="inlineRadio1">Parent</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                         <input formControlName="category" class="form-check-input m-2" type="radio" name="category" id="inlineRadio2" value="provider">
+                    <div  (click)="show()" class="form-check form-check-inline">
+                         <input formControlName="category" ngModel="category" class="form-check-input m-2" type="radio" name="category" id="inlineRadio2" value="provider">
                          <label class="form-check-label" for="inlineRadio2">Service Provider</label>
                     </div>
-               </div>  
-               <div class="form-group">
-                    <label for="inputAddress">Full Name</label>
-                    <input formControlName="fullName" type="text" class="form-control" id="inputFullName" placeholder="Full Name">
+               </div> 
+               <div class="form-group col-md-6"  *ngIf="showSpecialty">
+                    <label for="inputSpecialty">Specialty</label>
+                    <select class="form-control" formControlName="specialty" id="inputSpecialty" size="1" name="specialty">
+                         <option selected>Specialty</option>
+                         <option value="English">English</option>
+                         <option value="Français">Français</option>
+                         <option value="Arabe">Arabe</option>
+                         <option value="Math">Math</option>
+                         <option value="Science">Science</option>
+                         <option value="Physics">Physics</option>
+                    </select>
                </div>
                <div class="form-group">
-                    <label for="inputAddress">Username</label>
+                    <label for="inputFullname">Full Name</label>
+                    <input formControlName="fullname" type="text" class="form-control" id="inputFullname" placeholder="Full Name">
+               </div>
+               <div class="form-group">
+                    <label for="inputUsername">Username</label>
                     <input formControlName="username" type="text" class="form-control" id="inputUsername" placeholder="username">
                </div>
                <div class="form-group">
@@ -31,11 +43,15 @@
                </div>
           </div>
           <div class="form-group">
+               <label for="inputAddress">Phone</label>
+               <input formControlName="phone" type="text" class="form-control" id="inputPhone" placeholder="phone number">
+          </div>
+          <div class="form-group">
                <label for="inputAddress">Address</label>
-               <input formControlName="address" type="text" class="form-control" id="inputAddress" placeholder="Tunisie 4000 Ariana">
+               <input formControlName="address" type="email" class="form-control" id="inputAddress" placeholder="Tunisie 4000 Ariana">
           </div>
           <div class="form-row">
-               <div class="form-group col-md-4">
+               <div class="form-group col-md-6">
                     <label for="inputState">City</label>
                     <select formControlName="city" id="inputState" class="form-control">
                          <option value="">City</option>

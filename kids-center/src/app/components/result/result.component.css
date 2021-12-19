@@ -1,31 +1,27 @@
-.card{
+/* .bigdiv{
+margin: 5%;
+min-height: 300px;
+box-sizing: 10%;
+margin-top:20px;
+  
+    display: inline-flex;
+    justify-content: center ;
+} */
+
+.testdiv{
+   
+    margin:5%;
+    text-align:center;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-between;
+
+        
     
-    color:black;
-    margin:25px;
-    backdrop-filter: blur(1px) saturate(150%);
-    -webkit-backdrop-filter: blur(6px) saturate(200%);
-    background-color: rgba(184, 221, 255, 0.562);
-    border-radius: 12px;
-    padding:10px;
-    margin-top: 120px;
     
 }
-.card:hover{
-    cursor: pointer;
+img{
+    width: 200px;
+    height: 120px;
 }
 
-.cardpp{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width:150px;
-}
-.cardul{
-    padding: 1px;
-    margin: 0px;
-}
-.cardp{
-    max-height:150px;
-    border-radius: 10px;
-    
-}

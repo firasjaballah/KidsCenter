@@ -9,8 +9,6 @@ module.exports = {
                // the server will try the following
                const users = await User
                     .find({})
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(users);
           } catch (error) {
@@ -23,8 +21,6 @@ module.exports = {
                // the server will try the following
                const foundUser = await User
                     .findById(req.params.userId)
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(foundUser);
           } catch (error) {
@@ -37,8 +33,6 @@ module.exports = {
                // the server will try the following
                const user = await User
                     .findByIdAndUpdate(req.params.userId, req.body, { new: true })
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(user)
           } catch (error) {
@@ -51,12 +45,27 @@ module.exports = {
                // the server will try the following
                const removedUser = await User
                     .findByIdAndRemove(req.params.userId)
-                    .populate(["parent", "provider"])
-                    .select('-password')
 
                res.status(200).json(removedUser)
           } catch (error) {
                next(error)
           }
-     }
+     },find: async (req, res, next) => {
+          // get all the users
+          try {
+      console.log("queryUser",req.query);               // the server will try the following
+      console.log("params",req.params);
+               const user = await User
+               //{fullname:"/"+req.query.fullname+"/",city:"/"+req.query.city+"/",specialty:"/"+req.query.specialty+"/"}
+                    .find({city:{$regex:req.query.city},fullname:{$regex:req.query.fullname},specialty:{$regex:req.query.specialty},category:"provider"})
+                 
+                    console.log(user)
+                    // .populate(["parent", "provider"])
+                    // .select('-password')
+      
+               res.status(200).json(user);
+          } catch (error) {
+               next(error);
+          }
+      }
 };

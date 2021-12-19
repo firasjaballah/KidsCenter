@@ -1,124 +1,62 @@
 <H1>Events</H1>
 <div>
-<mat-form-field appearance="fill">
-    
-    <mat-select [(ngModel)]="selectedValue">
-      <mat-option>State</mat-option>
-      <mat-option *ngFor="let state of states" value={{state}} >{{state}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button (click)="onfilter()">filter</button>
+	<mat-form-field appearance="fill">
+
+		<mat-select [(ngModel)]="selectedValue">
+			<mat-option>State</mat-option>
+			<mat-option *ngFor="let state of states" value={{state}}>{{state}}</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<button (click)="onfilter()">filter</button>
 </div>
 <div>
-	<button>Add An event</button>
+	<button (click)='addPost()'>Add An event</button>
 	<button>My Favourite List</button>
 </div>
-  <!-- <div class='content'>
-  <div fxLayout="row-wrap" fxLayoutGap="16px grid">
-    <mat-card fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let event of events" class="mat-elevation-z4" >
-        <mat-card-title>{{event.title}}</mat-card-title>
-        <img mat-card-lg-image src={{event.image}}>
-        <mat-card-subtitle>date: {{event.date}}</mat-card-subtitle>
-        <mat-card-subtitle>Location: {{event.location}}</mat-card-subtitle>
-        <mat-card-subtitle>Fee: {{event.fee}}</mat-card-subtitle>
-        <mat-card-subtitle>Contact: {{event.contact}}</mat-card-subtitle>
-        <mat-card-content>Description: {{event.description}}</mat-card-content>
-        <mat-card-actions>Add to My favourite</mat-card-actions>
-    </mat-card>
-</div>
-</div>
-   -->
-  <div>
-   <section class="home-blog bg-sand">
-    <div class="container">
-		<!-- section title -->
-		<div class="row justify-content-md-center">
-			<div class="col-xl-5 col-lg-6 col-md-8">
-				<div class="section-title text-center title-ex1">
-					<h2>Latest News</h2>
-					<p>Inventore cillum soluta inceptos eos platea, soluta class laoreet repellendus imperdiet optio.</p>
+
+<div>
+	<section class="home-blog bg-sand">
+		<div class="container">
+			<!-- section title -->
+			<div class="row justify-content-md-center">
+				<div class="col-xl-5 col-lg-6 col-md-8">
+					<div class="section-title text-center title-ex1">
+						<h2>Latest News</h2>
+						<p>Inventore cillum soluta inceptos eos platea, soluta class laoreet repellendus imperdiet
+							optio.</p>
+					</div>
+				</div>
+			</div>
+			<!-- section title ends -->
+			<div >
+			<div class="row" >
+				<div class="col-md-6"*ngFor="let post of posts">
+					<div class="media blog-media">
+						<a><img class="d-flex"
+								src={{post.event_img}}
+								alt="Generic placeholder image"></a>
+						<div class="circle">
+							<h5 class="day">{{post.date.slice(8,10)}}</h5>
+							<span class="month">{{post.date.slice(5,7)}}</span>
+						</div>
+						<div class="media-body">
+							<a (click)='comments(post)'>{{post.title}}
+								<!-- <h5 class="mt-0">{{post.title}}</h5> -->
+							</a>
+							<!-- {{post.description}} -->
+							<a class="post-link" (click)='comments(post)'>Read More</a>
+							<ul>
+								<li>by: {{post.eventBy}}</li>
+								<li class="text-right"><a (click)='comments(post)'>{{post.comments.length}} comments</a>
+								</li>
+								<li class="text-right"><a>Add to My fovourite
+										list</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<!-- section title ends -->
-		<div class="row ">
-			<div class="col-md-6">
-				<div class="media blog-media">
-				  <a href="blog-post-left-sidebar.html"><img class="d-flex" src="https://www.atlantaparent.com/wp-content/uploads/2021/07/iStock-861129134-e1630538454158.jpg" alt="Generic placeholder image"></a>
-				  <div class="circle">
-				  	<h5 class="day">14</h5>
-				  	<span class="month">sep</span>
-				  </div>
-				  <div class="media-body">
-				    <a href=""><h5 class="mt-0">Standard Blog Post</h5></a>
-				    Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.
-				    <a href="blog-post-left-sidebar.html" class="post-link">Read More</a>
-				    <ul>
-				    	<li>by: Admin</li>
-				    	<li class="text-right"><a href="blog-post-left-sidebar.html">07 comments</a></li>
-						<li class="text-right"><a href="blog-post-left-sidebar.html">Add to My fovourite list</a></li>
-				    </ul>
-				  </div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="media blog-media">
-				  <a href="blog-post-left-sidebar.html"><img class="d-flex" src="https://media.istockphoto.com/photos/group-of-kids-party-event-festive-celebration-picture-id699706592?b=1&k=20&m=699706592&s=170667a&w=0&h=90X9tlV_hX1io7mSj512hPEA99p6idmGn06pI2q0vo0=" alt="Generic placeholder image"></a>
-				  <div class="circle">
-  				  	<h5 class="day">12</h5>
-  				  	<span class="month">sep</span>
-  				  </div>
-				  <div class="media-body">
-				    <a href=""><h5 class="mt-0">perferendis labore</h5></a>
-				    Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.
-				    <a href="blog-post-left-sidebar.html" class="post-link">Read More</a>
-				    <ul>
-				    	<li>by: Admin</li>
-				    	<li class="text-right"><a href="blog-post-left-sidebar.html">04 comments</a></li>
-						<li class="text-right"><a href="blog-post-left-sidebar.html">Add to My fovourite list</a></li>
-				    </ul>
-				  </div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="media blog-media">
-				  <a href="blog-post-left-sidebar.html"><img class="d-flex" src="https://via.placeholder.com/350x380/FF7F50/000000" alt="Generic placeholder image"></a>
-				  <div class="circle">
-  				  	<h5 class="day">09</h5>
-  				  	<span class="month">sep</span>
-  				  </div>
-				  <div class="media-body">
-				    <a href=""><h5 class="mt-0">deleniti incdunt magni</h5></a>
-				    Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.
-				    <a href="blog-post-left-sidebar.html" class="post-link">Read More</a>
-				    <ul>
-				    	<li>by: Admin</li>
-				    	<li class="text-right"><a href="blog-post-left-sidebar.html">10 comments</a></li>
-						<li class="text-right"><a href="blog-post-left-sidebar.html">Add to My fovourite list</a></li>
-				    </ul>
-				  </div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="media blog-media">
-				  <a href="blog-post-left-sidebar.html"><img class="d-flex" src="https://via.placeholder.com/350x380/008B8B/000000" alt="Generic placeholder image"></a>
-				  <div class="circle">
-  				  	<h5 class="day">04</h5>
-  				  	<span class="month">sep</span>
-  				  </div>
-				  <div class="media-body">
-				    <a href=""><h5 class="mt-0">Explicabo magnam </h5></a>
-				    Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.
-				    <a href="blog-post-left-sidebar.html" class="post-link">Read More</a>
-				    <ul>
-				    	<li>by: Admin</li>
-				    	<li class="text-right"><a href="blog-post-left-sidebar.html">06 comments</a></li>
-						<li class="text-right"><a href="blog-post-left-sidebar.html">Add to My fovourite list</a></li>
-				    </ul>
-				  </div>
-				</div>
-			</div>
 		</div>
-	</div>
-</section>
+	</section>
 </div>
