@@ -31,8 +31,8 @@ export class EventCommentsComponent implements OnInit {
    
   }
   submit(): void {
-   if(this.user)
-   { this.http.put('http://localhost:8000/events/events', {_id:this.post._id,comment:{text:this.form.getRawValue().myComment,user:this.user}})
+   
+   this.http.put('http://localhost:8000/events/events', {_id:this.post._id,comment:{text:this.form.getRawValue().myComment,user:this.user}})
       .subscribe({
         next: Response => {
        this.post=Response
@@ -44,8 +44,8 @@ export class EventCommentsComponent implements OnInit {
           console.log(error)
           
         }
-      });}
-      else{this.route.navigateByUrl('/signin')}
+      });
+     
   }
   verifyOwner(comment:any){
     console.log('verifyowner',this.user._id===comment.user._id)

@@ -2,17 +2,17 @@ const Events = require("../models/event");
 
 module.exports = {
   create_One: async (req, res, next) => {
-    const { eventBy, location, city, contact, date, event_img, likes } =
+    const { title,eventBy, location, city, contact, date, event_img} =
       req.body;
     try {
       const event = await Events.create({
+        title,
         eventBy,
         location,
         city,
         contact,
         date,
         event_img,
-        likes,
       });
 
       res.status(200).json(event);
@@ -22,17 +22,18 @@ module.exports = {
   },
   find_All: async (req, res, next) => {
     try {
-      const events = await Events.find({});
-
+      const events = await Events.find({}).sort({createdAt: -1}).exec();
+         
       res.status(200).json(events);
     } catch (error) {
       next(error);
     }
   },
   find_One: async (req, res, next) => {
+    console.log("event/events ",req.body)
     try {
-      const eventsFound = await Events.find({ city: req.body.state });
-
+      const eventsFound = await Events.find({ city: req.body.city });
+      console.log(eventsFound)
       res.status(200).json(eventsFound);
     } catch (error) {
       next(error);

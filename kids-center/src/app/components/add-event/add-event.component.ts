@@ -9,10 +9,37 @@ import { Router } from '@angular/router';
 })
 export class AddEventComponent implements OnInit {
   form  : FormGroup;
+  selectedValue: string;
   
 
   constructor(private formAdd: FormBuilder,
     private http: HttpClient,private route     : Router  ) { }
+    states: string[] = [
+      'Tunis',
+      'Ariana',
+      'Ben arous',
+      'Manouba',
+      'Sousse',
+      'Sfax',
+      'Gabes',
+      'Médenine',
+      'Mahdia',
+      'Béja',
+      'Bizerte',
+      'Gafsa',
+      'Jendouba',
+      'Kairouan',
+      'Kasserine',
+      'Kef',
+      'Monastir',
+      'Nabeul',
+      'Sidi Bouzid',
+      'Siliana',
+      'Tataouine',
+      'Tozeur',
+      'Zaghouan',
+      'Kébili',
+    ];
 
   ngOnInit(): void {
     this.form = this.formAdd.group({
@@ -29,7 +56,7 @@ export class AddEventComponent implements OnInit {
     })
   }
   submit(): void {
-    // console.log(this.form.getRawValue());
+    console.log('form',this.form.getRawValue());
     this.http.post('http://localhost:8000/events/events', this.form.getRawValue())
       .subscribe({
         next: Response => {
