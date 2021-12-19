@@ -44,7 +44,7 @@ export class SigninComponent implements OnInit {
           console.log(Response);
           this.result = Response;
           this.data.changeMessage(Response);
-          this.route.navigateByUrl('/');
+          this.route.navigateByUrl('/result');
           // this.shared.setuser(this.result);
           
         },
