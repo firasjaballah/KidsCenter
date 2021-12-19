@@ -20,6 +20,8 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SearchFilterPipe } from './components/search/search-filter.pipe';
+import { AdminComponent } from './admin/admin/admin.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -35,6 +37,7 @@ import { SearchFilterPipe } from './components/search/search-filter.pipe';
     ResultComponent,
     SearchComponent,
     SearchFilterPipe,
+    AdminComponent,
  
   ],
   imports: [
@@ -49,7 +52,8 @@ import { SearchFilterPipe } from './components/search/search-filter.pipe';
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
