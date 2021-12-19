@@ -55,7 +55,7 @@
                         <li class="list-group-item">Email : {{provider.email}}</li>
                         <li class="list-group-item">Phone : {{provider.phone}}</li>
                       </ul>
-                      <a href="#" class="btn btn-primary">Profile</a>
+                      <a [routerLink]="['/userprofile', provider._id]" class="btn btn-primary">Profile</a>
         </div>     
 </div>
   </div>

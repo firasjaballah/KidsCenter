@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
  
   submit(): void {
     console.log(this.form.getRawValue());
-    let params = this.form.getRawValue()
+    let params = this.form.getRawValue();
     // let params = new HttpParams().set("paramName",this.form.city).set("paramName2", paramValue2);
     this.http.get('http://localhost:8000/services',{params})
     .subscribe({
