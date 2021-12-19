@@ -33,5 +33,16 @@ module.exports = {
           } catch (error) {
                next(error);
           }
+     }, find_One: async (req, res, next) => {
+          try {
+               console.log("\nRequesting the server to give me a specific user from the database ...\n");
+               // the server will try the following
+               const services = await Service
+                    .findById(req.params.servicesId)
+
+               res.status(200).json(services);
+          } catch (error) {
+               next(error);
+          }
      }
 }

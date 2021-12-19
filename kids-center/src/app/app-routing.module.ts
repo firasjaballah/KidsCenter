@@ -13,6 +13,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { EventCommentsComponent } from './components/event-comments/event-comments.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 
 
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'admin/index', component: AdminComponent},
   {path:'editprofile', component: EditprofileComponent},
   {path:'addEvent', component: AddEventComponent},
-  {path:'comments', component:  EventCommentsComponent }
+  {path:'comments', component:  EventCommentsComponent },
+  {path:'userprofile/:id', component:  UserprofileComponent }
 
 
 ];

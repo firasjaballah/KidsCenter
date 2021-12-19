@@ -28,6 +28,7 @@ import { SearchFilterPipe } from './components/search/search-filter.pipe';
 import { AdminComponent } from './admin/admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { EventCommentsComponent } from './components/event-comments/event-comments.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 
 
@@ -51,6 +52,7 @@ import { EventCommentsComponent } from './components/event-comments/event-commen
     SearchFilterPipe,
     AdminComponent,
     EventCommentsComponent,
+    UserprofileComponent,
 
  
   ],
