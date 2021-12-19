@@ -19,6 +19,10 @@ export class AppComponent {
     ) { }
 
   ngOnInit(): void {
+    
+    // this.user = this.shared.getuser();
+    // console.log('USER',this.user);
+    
     // this.user = this.shared.getuser();
     this.subscription = this.data.currentMessage.subscribe((message: any) => {
       this.user = message;
@@ -46,5 +50,6 @@ export class AppComponent {
       _id: "",
     });
   }
+  
   
 }

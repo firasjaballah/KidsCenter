@@ -3,7 +3,7 @@ const router = express.Router();
 
 const EventsController = require("../controllers/events");
 
-router.route("/events").get(EventsController.find_All);
+router.route("/").get(EventsController.find_All);
 
 router
   .route("/events")
