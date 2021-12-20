@@ -53,8 +53,9 @@ module.exports = {
     }
   },
   remove_One: async (req, res, next) => {
+    console.log('deletepost',req.body)
     try {
-      const removedEvent = await Events.findByIdAndRemove(req.params.EventId);
+      const removedEvent = await Events.findOneAndDelete({_id: req.body._id});
       res.status(200).json(removedEvent);
     } catch (error) {
       next(error);

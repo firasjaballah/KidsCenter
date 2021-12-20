@@ -105,4 +105,18 @@ export class EventsComponent implements OnInit {
         error: (error) => console.log('error', error),
       });
   }
+  deleteEvent(post:any){
+    console.log('post',post)
+    this.http.delete("http://localhost:8000/events/events",post._id)
+
+    .subscribe({
+      next: (Response) => {
+        console.log('response', Response);
+        // this.posts = Response;
+        // console.log('here', this.posts);
+        this.route.navigateByUrl('/events');
+      },
+      error: (error) => console.log('error', error),
+    });
+  }
 }
